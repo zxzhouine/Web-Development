@@ -1,0 +1,121 @@
+.head{
+  margin-top   : 40px;
+  margin-bottom: 40px;
+}
+.headlogo{
+  font-family : Bradley Hand;
+  font-weight : bold;
+  text-align: center;
+  text-indent: 20%;
+  font-size : 37px;
+  line-height : 43.39px;
+  color : #000000;
+  color : rgb(0, 0, 0);
+}
+.mainbox{
+  margin-top: 50px;
+  margin-left: 3px;
+  margin-right:3px;
+}
+.welcome{
+  font-family : Chalkduster;
+  font-size : 80px;
+  color : #000000;
+  color : rgb(0, 0, 0);
+  box-shadow: 10px 10px 5px #888888;
+  margin-top   : 140px;
+  margin-bottom: 40px;
+}
+.link{
+  font-family : Bradley Hand;
+  font-size : 40px;
+  letter-spacing : 2px;
+  color : #000000;
+  color : rgb(0, 0, 0);
+  font-weight:bold;  
+  margin-left: 55px;
+  margin-right:55px;
+}
+.welcomemain{
+  margin-top: 150px;
+}
+.logout{
+  margin-left: 70px;
+}
+.login{
+  font-family : Bradley Hand;
+  font-size : 60px;
+  color : #000000;
+  color : rgb(0, 0, 0);
+  margin-left: 20px;
+  margin-top: 40px;
+}
+.inputbox {
+  margin-left: 90px;
+}
+.inputtext{
+  font-family : Bradley Hand;
+  font-size : 20px;
+  color : #000000;
+  color : rgb(0, 0, 0);
+}
+.narbartext{
+  font-family : Bradley Hand;
+  margin-left: 380px;
+}
+.narbartext1{
+  font-family : Bradley Hand;
+}
+.narbartext2{
+  font-family : Bradley Hand;
+  font-size : 20px;
+}
+.profile{
+  font-family : Open Sans;
+  font-size : 15px;
+}
+.title{
+  font-family : Bradley Hand;
+  font-size : 30px;
+}
+.title2{
+  font-family : Bradley Hand;
+  font-size : 20px;
+}
+.search{
+  margin-right: 430px;
+}
+.listmargin{
+  margin-top: 40px;
+}
+.comment{
+  margin-left: 160px;
+}
+.post{
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.commentform{
+}
+.commentbutton{
+}
+.username{
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.center-in-center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.error{
+  font-family : Bradley Hand;
+  text-align: center;
+  font-size : 40px;
+  margin-top: 100px;
+}

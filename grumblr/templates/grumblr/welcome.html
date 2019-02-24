@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="grumblr">
+  <meta name="author" content="xinze zhou">
+  <title>Welcome</title>
+  {% load static%}
+  <link rel="stylesheet" href="{% static 'grumblr/css/mystyle.css' %}">
+  <link rel="stylesheet" href="{% static 'grumblr/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+  <div class="container head">
+      <div class="text-center">
+        <span class="headlogo">MS*F Club <br> Carnegie Mellon University</span>
+      </div>
+  </div>
+   <div class="container text-center">
+        <div class="welcome">Welcome to MS*F Club</div>
+        <div class="welcomemain">
+          <a class="link" href="{% url 'login' %}">   Log  In</a>
+          <a class="link" href="{% url 'register' %}">Sign up</a>
+        </div>
+   </div>
+
+ </body>
+ </html>

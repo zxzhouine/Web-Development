@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="grumblr">
+  <meta name="author" content="xinze zhou">
+  <title>{% block title %}{% endblock %}</title>
+  {% load static%}
+  <link rel="stylesheet" href="{% static 'grumblr/css/mystyle.css' %}">
+  <link rel="stylesheet" href="{% static 'grumblr/css/bootstrap.min.css' %}">
+  <script src="{% static 'grumblr/js/jquery-3.1.1.min.js' %}"></script>
+</head>
+
+<body>
+  <div class="container head">
+    <div class="row clearfix">
+      <div class="col-md-6 column text-center">
+        <span class="headlogo">MS*F Club <br> Carnegie Mellon University</span>
+      </div>
+      <div class="col-md-6 column">
+        <a class="link" href="{%url 'login' %}">   Log  In</a>
+        <a class="link" href="{%url 'register' %}">Sign up</a>
+       </div>
+     </div>
+  </div>
+   <div class="container">
+    <div class="row">
+      <div class="col-md-6 column">
+        <div class="welcome text-center">
+            Welcome to <br>
+            MS*F Club
+        </div>
+      </div>
+      <div class="col-md-6 column text-center">
+        {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="{% static 'grumblr/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'grumblr/js/grumblr.js' %}"></script>
+</body>
+
+</html>

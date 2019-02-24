@@ -1,0 +1,7 @@
+{
+  "username"  : "{{post.username}}",
+  "text"      : "{{post.text}}",
+  "image"   : "{{post.profile.image}}",
+  "time"      : "{{post.time}}",
+  "pk"        : "{{post.pk}}"
+}

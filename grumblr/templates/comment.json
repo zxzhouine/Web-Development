@@ -1,0 +1,8 @@
+{
+  "username"   : "{{comment.user.username}}", 
+  "comment"    : "{{comment.comment}}",
+  "time"       : "{{comment.time}}",
+  "image"      : "{{comment.user.image}}",
+  "post_pk"    : "{{comment.post.pk}}",
+  "comment_pk" : "{{comment.pk}}"
+}

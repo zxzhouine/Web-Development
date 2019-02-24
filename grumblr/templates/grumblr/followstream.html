@@ -1,0 +1,63 @@
+{% extends "base2.html" %}
+{% block title %} FollowStream {% endblock %}
+{% block narbar %}
+<div class="col-md-3 column mainbox">
+  <div class="list-group listmargin">
+    <a href="{% url 'index' %}" class="list-group-item list-group-item-action narbartext2">Home</a>
+    <a href="{% url 'followstream' %}" class="list-group-item list-group-item-action narbartext2">FollowStream</a>
+    <a href="#" class="list-group-item list-group-item-action narbartext2">Favorites</a>
+  </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="col-md-5 column mainbox">
+   <div id="post_area">
+    {% for post in posts reversed%}
+    {% if post.user in follow %}
+    <div id="carddiv_{{post.pk}}" class="card post">
+      <div class="card-header">
+        Post
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{post.text}}</p>
+        {% if post.profile.image %}
+        <img src="{% url 'photo' post.user.username %}" width="30" height="30"> 
+        {% endif %}
+        <a href="{% url 'profile' post.user.username %}" class="username">{{post.user.username}}</a>
+        <span>{{post.time}}</span>
+      </div>
+      <div class="container d-flex w-100 mb-3">
+        <button id="combutton_{{post.pk}}" class="btn btn-sm btn-outline-info commentbutton">Comment</button>
+      </div>
+      <div id="commentarea_{{post.pk}}" class="container">
+        {% for comment in comments %}
+        {% if comment.post == post %}
+        <div id="commentarea_{{comment.pk}}" class="card">
+          <div class="card-header">
+            Comment
+          </div>
+          <div class="card-body">
+            <p class="card-text"> {{comment.comment}} </p>
+            {% if comment.user.image %}
+            <img src="{% url 'photo' comment.user.username %}" width="30" height="30"> 
+            {% endif %}
+            <a href="{% url 'profile' comment.user.username %}" class="username">{{comment.user.username}}</a>
+            <span>{{comment.time}}</span>
+          </div>
+        </div>
+        {% endif %}       
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+  </div>
+  <input type="hidden" id="timestamp" value="{{timestamp}}">
+</div>
+{% endblock %}
+{% block script %}
+{% load static%}
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="{% static 'grumblr/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'grumblr/js/profile.js' %}"></script>
+{% endblock %}

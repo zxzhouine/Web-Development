@@ -1,0 +1,93 @@
+{% extends "base2.html" %}
+{% block title %} GlobalStreaming {% endblock %}
+{% block narbar %}
+<div class="col-md-3 column mainbox">
+  <div class="text">
+    <div class="title text-center">        
+      {% if user_view.image %}
+      <img src="{% url 'photo' user_view.username %}" width="90" height="90"> 
+      {% endif %}
+      <br>
+      <span>{{user_view.first_name}}&nbsp&nbsp{{user_view.last_name}}</span>
+    </div> 
+    <div class="profile"> 
+      <p>email: {{user_view.email}}</p>
+      <p>age:{{user_view.age}} </p>
+      <p>intro: {{user_view.intro}}</p>
+      <div class='text-center'>
+        <a href="{% url 'edit_profile' %}" >Edit Profile</a>
+        <br>
+        <a href="{% url 'change_password' %}" >Change Password</a>
+        <br>
+      </div>
+    </div>
+  </div>
+  <div class="list-group">
+    <a href="{% url 'profile' user.username %}" class="list-group-item list-group-item-action narbartext2">My Profile </a>
+    <a href="{% url 'followstream' %}" class="list-group-item list-group-item-action narbartext2">FollowStream</a>
+    <a href="#" class="list-group-item list-group-item-action narbartext2">Mosted Starred</a>
+    <a href="#" class="list-group-item list-group-item-action narbartext2">Recommend</a>
+    <a href="#" class="list-group-item list-group-item-action narbartext2">Collection</a>
+  </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="col-md-5 column mainbox">
+  <form id="create-post-form" role="form" method="POST">
+    {% csrf_token %}
+    <div class="form-group input-group input-group-lg" >
+      {{ post_form.text}}
+      <input type="submit" value="post" class="btn btn-outline-primary btn-block text-center" id="postBtn">
+    </div>
+  </form>
+  <input type="hidden" id="timestamp" value="{{timestamp}}">
+  
+  <div id="post_area">
+    {% for post in posts reversed%}
+    <div id="carddiv_{{post.pk}}" class="card post">
+      <div class="card-header">
+        Post
+      </div>
+      <div class="card-body">
+        <p class="card-text">{{post.text}}</p>
+        {% if post.profile.image %}
+        <img src="{% url 'photo' post.user.username %}" width="30" height="30"> 
+        {% endif %}
+        <a href="{% url 'profile' post.user.username %}" class="username">{{post.user.username}}</a>
+        <span>{{post.time}}</span>
+      </div>
+      <div class="container d-flex w-100 mb-3">
+        <button id="combutton_{{post.pk}}" class="btn btn-sm btn-outline-info commentbutton">Comment</button>
+      </div>
+      <div id="commentarea_{{post.pk}}" class="container">
+      {% for comment in comments %}
+      {% if comment.post == post %}
+        <div id="commentarea_{{comment.pk}}" class="card">
+            <div class="card-header">
+              Comment
+            </div>
+            <div class="card-body">
+              <p class="card-text"> {{comment.comment}} </p>
+              {% if comment.user.image %}
+              <img src="{% url 'photo' comment.user.username %}" width="30" height="30"> 
+              {% endif %}
+              <a href="{% url 'profile' comment.user.username %}" class="username">{{comment.user.username}}</a>
+              <span>{{comment.time}}</span>
+            </div>
+        </div>
+      {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  
+</div>
+
+{% endblock %}
+  {% block script %}
+   {% load static%}
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="{% static 'grumblr/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'grumblr/js/grumblr.js' %}"></script>
+  {% endblock %}

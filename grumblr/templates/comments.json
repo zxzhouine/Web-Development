@@ -1,0 +1,7 @@
+{
+  "comments":[
+    {% for comment in comments %}{% include 'comment.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ],
+  "timestamp": "{{timestamp}}",
+  "user_view": "{{user_view}}"
+}

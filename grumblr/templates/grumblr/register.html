@@ -1,0 +1,29 @@
+{% extends "base1.html" %}
+{% block title %} Register {% endblock %}
+{% block content %}
+<div class="login">Sign Up</div>
+<form method="POST" action="{% url 'register' %}" >
+  {% csrf_token %}
+  <table class="inputbox">
+    {% for error in register_form.non_field_errors %}
+    <p style="color: red"> {{ error }} </p>
+   {% endfor %}
+
+   {% for field in register_form.visible_fields %}
+   <tr>
+    <td class='inputtext'>{{field.label_tag}}</td>
+    <td>{{field}}</td>
+    <td style="color: red">{{field.errors}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% for field in register_form.hidden_fields %}
+{{field}}
+{% endfor %}
+{{message}}
+{% if not message %}
+<input type="submit" value="Sign Up" class="btn btn-primary pull-right" />
+{% endif %}
+<input type="hidden" name="next" value="{{ next }}"/>
+</form>
+{% endblock %}

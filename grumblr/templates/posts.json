@@ -1,0 +1,7 @@
+{
+  "posts":[
+    {% for post in posts %}{% include 'post.json' %}{% if not forloop.last %}, {% endif %}{% endfor %}
+  ],
+  "timestamp": "{{timestamp}}",
+  "user_view": "{{user_view}}"
+}
